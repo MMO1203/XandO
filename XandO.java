@@ -169,7 +169,41 @@ void showWinnerDialog(String winner) {
 
             }
 
+ Void resetGame() {
+
+                playerOne.clear();
+
+                playerTwo.clear();
+
+                flag = 0;
+
  
+
+                JButton[] buttons = {btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9};
+
+                For (JButton button : buttons) {
+
+                    Button.setText(“”);
+
+                    Button.setEnabled(true);
+
+                }
+
+            }
+
+ 
+
+            Public static void main(String[] args) {
+
+                XandO xandO = new XandO();
+
+                xandO.drawGrid();
+
+            }
+
+        }
+
+
 
             
              
