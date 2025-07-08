@@ -133,3 +133,148 @@ import java.util.ArrayList;
             }
 
         }
+void showWinnerDialog(String winner) {
+
+                int choice = JOptionPane.showOptionDialog(
+
+                        null,
+
+                        winner + " wins! 🎉\nWould you like to play again?",
+
+                        "Game Over",
+
+                        JOptionPane.YES_NO_OPTION,
+
+                        JOptionPane.INFORMATION_MESSAGE,
+
+                        null,
+
+                        new String[]{"Play Again", "Exit"},
+
+                        "Play Again"
+
+                );
+
+ 
+
+                if (choice == JOptionPane.YES_OPTION) {
+
+                    resetGame();
+
+                } else {
+
+                    System.exit(0);
+
+                }
+
+            }
+
+ 
+
+            void resetGame() {
+
+                playerOne.clear();
+
+                playerTwo.clear();
+
+                flag = 0;
+
+ 
+
+                JButton[] buttons = {btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9};
+
+                for (JButton button : buttons) {
+
+                    button.setText("");
+
+                    button.setEnabled(true);
+
+                }
+
+            }
+
+ 
+
+            public static void main(String[] args) {
+
+                XandO xandO = new XandO();
+
+                xandO.drawGrid();
+
+            }
+
+        }
+
+void showWinnerDialog(String winner) {
+
+                int choice = JOptionPane.showOptionDialog(
+
+                        null,
+
+                        winner + " wins! 🎉\nWould you like to play again?",
+
+                        "Game Over",
+
+                        JOptionPane.YES_NO_OPTION,
+
+                        JOptionPane.INFORMATION_MESSAGE,
+
+                        null,
+
+                        new String[]{"Play Again", "Exit"},
+
+                        "Play Again"
+
+                );
+
+ 
+
+                if (choice == JOptionPane.YES_OPTION) {
+
+                    resetGame();
+
+                } else {
+
+                    System.exit(0);
+
+                }
+
+            }
+
+ 
+
+            void resetGame() {
+
+                playerOne.clear();
+
+                playerTwo.clear();
+
+                flag = 0;
+
+ 
+
+                JButton[] buttons = {btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9};
+
+                for (JButton button : buttons) {
+
+                    button.setText("");
+
+                    button.setEnabled(true);
+
+                }
+
+            }
+
+ 
+
+            public static void main(String[] args) {
+
+                XandO xandO = new XandO();
+
+                xandO.drawGrid();
+
+            }
+
+        }
+
+
