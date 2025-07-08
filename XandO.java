@@ -2,90 +2,50 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class TicTacToe extends JFrame {
+        public class XandO {
+            ArrayList<Integer> playerOne = new ArrayList<>();
+            ArrayList<Integer> playerTwo = new ArrayList<>();
 
-    private char[][] board = new char[3][3];
-    private char currentPlayer = 'X';
+            JFrame xAndO = new JFrame("Tic-Tac-Toe Game");
+            JPanel myPanel = new JPanel(new GridLayout(3, 3));
 
-    public TicTacToe() {
-        // Initialize board
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = ' ';
-            }
-        }
+            int flag = 0;
 
-        // Create game panel
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 3));
+            String playerOneName = "Player 1";
+            String playerTwoName = "Player 2";
 
-        // Create buttons for each cell
-        JButton[][] buttons = new JButton[3][3];
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                JButton button = new JButton();
-                button.addActionListener(new ButtonListener(i, j));
-                panel.add(button);
-                buttons[i][j] = button;
-            }
-        }
+            JButton btn1 = new JButton();
+            JButton btn2 = new JButton();
+            JButton btn3 = new JButton();
+            JButton btn4 = new JButton();
+            JButton btn5 = new JButton();
+            JButton btn6 = new JButton();
+            JButton btn7 = new JButton();
+            JButton btn8 = new JButton();
+            JButton btn9 = new JButton();
 
-        // Add panel to frame
-        add(panel);
+            void showWelcomeDialog() {
+                JTextField player1Field = new JTextField();
+                JTextField player2Field = new JTextField();
 
-        // Set up frame
-        setSize(300, 300);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
-    }
+                JPanel inputPanel = new JPanel(new GridLayout(4, 1));
+                inputPanel.add(new JLabel("Welcome to our group Tic-Tac-Toe game!"));
+                inputPanel.add(new JLabel("Enter Player 1 name:"));
+                inputPanel.add(player1Field);
+                inputPanel.add(new JLabel("Enter Player 2 name:"));
+                inputPanel.add(player2Field);
 
-    private class ButtonListener implements ActionListener {
-        private int row;
-        private int col;
+                int result = JOptionPane.showConfirmDialog(null, inputPanel, "Welcome", JOptionPane.OK_CANCEL_OPTION);
 
-        public ButtonListener(int row, int col) {
-            this.row = row;
-            this.col = col;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            // Update board and button text
-            if (board[row][col] == ' ') {
-                board[row][col] = currentPlayer;
-                ((JButton) e.getSource()).setText(String.valueOf(currentPlayer));
-
-                // Check for winning conditions
-                if (checkWin()) {
-                    JOptionPane.showMessageDialog(null, "Player " + currentPlayer + " wins!");
-                    System.exit(0);
+                if (result == JOptionPane.OK_OPTION) {
+                    if (!player1Field.getText().trim().isEmpty()) {
+                        playerOneName = player1Field.getText().trim();
+                    }
+                    if (!player2Field.getText().trim().isEmpty()) {
+                        playerTwoName = player2Field.getText().trim();
+                    }
                 }
-
-                // Switch players
-                currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
             }
         }
-    }
-
-    private boolean checkWin() {
-        // Check rows, columns, and diagonals
-        for (int i = 0; i < 3; i++) {
-            if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') {
-                return true;
-            }
-            if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ') {
-                return true;
-            }
-        }
-        if ((board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') ||
-                (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ')) {
-            return true;
-        }
-        return false;
-    }
-
-    public static void main(String[] args) {
-        new TicTacToe();
-    }
-            }
