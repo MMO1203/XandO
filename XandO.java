@@ -99,4 +99,37 @@ import java.util.ArrayList;
                     }
                 });
             }
+                checkWin();
+                    }
+                });
+            }
+
+            void checkWin() {
+                // Player One win conditions
+                if (playerOne.contains(1) && playerOne.contains(2) && playerOne.contains(3) ||
+                        playerOne.contains(4) && playerOne.contains(5) && playerOne.contains(6) ||
+                        playerOne.contains(7) && playerOne.contains(8) && playerOne.contains(9) ||
+                        playerOne.contains(1) && playerOne.contains(4) && playerOne.contains(7) ||
+                        playerOne.contains(2) && playerOne.contains(5) && playerOne.contains(8) ||
+                        playerOne.contains(3) && playerOne.contains(6) && playerOne.contains(9) ||
+                        playerOne.contains(1) && playerOne.contains(5) && playerOne.contains(9) ||
+                        playerOne.contains(3) && playerOne.contains(5) && playerOne.contains(7)) {
+                    showWinnerDialog(playerOneName);
+                    return;
+                }
+
+                // Player Two win conditions
+                if (playerTwo.contains(1) && playerTwo.contains(2) && playerTwo.contains(3) ||
+                        playerTwo.contains(4) && playerTwo.contains(5) && playerTwo.contains(6) ||
+                        playerTwo.contains(7) && playerTwo.contains(8) && playerTwo.contains(9) ||
+                        playerTwo.contains(1) && playerTwo.contains(4) && playerTwo.contains(7) ||
+                        playerTwo.contains(2) && playerTwo.contains(5) && playerTwo.contains(8) ||
+                        playerTwo.contains(3) && playerTwo.contains(6) && playerTwo.contains(9) ||
+                        playerTwo.contains(1) && playerTwo.contains(5) && playerTwo.contains(9) ||
+                        playerTwo.contains(3) && playerTwo.contains(5) && playerTwo.contains(7)) {
+                    showWinnerDialog(playerTwoName);
+                    return;
+                }
+            }
+
         }
