@@ -48,4 +48,55 @@ import java.util.ArrayList;
                     }
                 }
             }
+
+                void drawGrid() {
+                showWelcomeDialog();
+
+                myPanel.removeAll();
+
+                myPanel.add(btn1);
+                myPanel.add(btn2);
+                myPanel.add(btn3);
+                myPanel.add(btn4);
+                myPanel.add(btn5);
+                myPanel.add(btn6);
+                myPanel.add(btn7);
+                myPanel.add(btn8);
+                myPanel.add(btn9);
+
+                addAction(btn1, 1);
+                addAction(btn2, 2);
+                addAction(btn3, 3);
+                addAction(btn4, 4);
+                addAction(btn5, 5);
+                addAction(btn6, 6);
+                addAction(btn7, 7);
+                addAction(btn8, 8);
+                addAction(btn9, 9);
+
+                xAndO.setLayout(new BorderLayout());
+                xAndO.add(myPanel, BorderLayout.CENTER);
+                xAndO.setSize(400, 400);
+                xAndO.setVisible(true);
+                xAndO.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            }
+
+            void addAction(JButton button, int position) {
+                button.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (flag == 0) {
+                            playerOne.add(position);
+                            button.setText("X");
+                            flag = 1;
+                        } else {
+                            playerTwo.add(position);
+                            button.setText("O");
+                            flag = 0;
+                        }
+                        button.setEnabled(false);
+                        checkWin();
+                    }
+                });
+            }
         }
